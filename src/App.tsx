@@ -1,6 +1,7 @@
 import { ReactElement, useState } from "react";
 import { Basic } from "./features/basic/Basic";
 import { BasicMore } from "./features/basic-more/BasicMore";
+import { SummaryForm } from "./features/form/SummaryForm";
 
 type Component = {
   id: number;
@@ -16,6 +17,10 @@ export const App = () => {
     {
       id: 2,
       component: BasicMore,
+    },
+    {
+      id: 3,
+      component: SummaryForm,
     },
   ]);
 
