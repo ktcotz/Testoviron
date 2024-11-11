@@ -1,5 +1,6 @@
 import { ReactElement, useState } from "react";
 import { Basic } from "./features/basic/Basic";
+import { BasicMore } from "./features/basic-more/BasicMore";
 
 type Component = {
   id: number;
@@ -11,6 +12,10 @@ export const App = () => {
     {
       id: 1,
       component: Basic,
+    },
+    {
+      id: 2,
+      component: BasicMore,
     },
   ]);
 
