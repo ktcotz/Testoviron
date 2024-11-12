@@ -31,4 +31,26 @@ describe("SummaryForm", () => {
 
     expect(checkbox).not.toBeChecked();
   });
+
+  test("popover responds to hover", async () => {
+    render(<SummaryForm />);
+
+    const userEvents = userEvent.setup();
+
+    const popover = screen.queryByText(
+      /No ice cream will actually be delivered/i
+    );
+
+    expect(popover).not.toBeInTheDocument();
+
+    const termsAndConditions = screen.getByText(/Terms and Conditions/i);
+
+    await userEvents.hover(termsAndConditions);
+
+    const popoverVisible = screen.queryByText(
+      /No ice cream will actually be delivered/i
+    );
+
+    expect(popoverVisible).toBeInTheDocument();
+  });
 });
