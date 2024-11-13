@@ -3,6 +3,7 @@ import { Basic } from "./features/basic/Basic";
 import { BasicMore } from "./features/basic-more/BasicMore";
 import { SummaryForm } from "./features/form/SummaryForm";
 import { AdvancedForm } from "./features/advanced-form/AdvancedForm";
+import { Options } from "./features/msw/Options";
 
 type Component = {
   id: number;
@@ -26,6 +27,10 @@ export const App = () => {
     {
       id: 4,
       component: AdvancedForm,
+    },
+    {
+      id: 5,
+      component: () => <Options optionType="scoops" />,
     },
   ]);
 
