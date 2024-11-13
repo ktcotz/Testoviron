@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
 
-describe.only("Options component testing", () => {
+describe("Options component testing", () => {
   test("Should render scoops on success", async () => {
     render(<Options optionType="scoops" />, {
       wrapper: ({ children }) => {
