@@ -4,6 +4,8 @@ import { BasicMore } from "./features/basic-more/BasicMore";
 import { SummaryForm } from "./features/form/SummaryForm";
 import { AdvancedForm } from "./features/advanced-form/AdvancedForm";
 import { CustomHook } from "./features/custom-hook/CustomHook";
+import { Zustand } from "./features/zustand/Zustand";
+
 type Component = {
   id: number;
   component: () => ReactElement;
@@ -30,6 +32,10 @@ export const App = () => {
     {
       id: 5,
       component: CustomHook,
+    },
+    {
+      id: 6,
+      component: Zustand,
     },
   ]);
 
