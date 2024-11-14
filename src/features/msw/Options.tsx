@@ -3,6 +3,9 @@ import ScoopOption from "./ScoopOption";
 import ToopingOption from "./ToopingOption";
 import { useQuery } from "@tanstack/react-query";
 import AlertBanner from "./AlertBanner";
+import { pricePerItem } from "../context/constants";
+import { useOrderDetails } from "../context/OrderDetails";
+import { formatCurrency } from "../context/utilities";
 
 type OptionsProps = {
   optionType: "scoops" | "toppings";
@@ -26,7 +29,7 @@ export const Options = ({ optionType }: OptionsProps) => {
     },
   });
 
-  console.log(isError, error);
+  const { totals } = useOrderDetails();
 
   if (isError || error) {
     return <AlertBanner />;
@@ -34,6 +37,7 @@ export const Options = ({ optionType }: OptionsProps) => {
 
   // TODO: replace `null` with ToppingOption when available
   const ItemComponent = optionType === "scoops" ? ScoopOption : ToopingOption;
+  const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
 
   const optionItems = items?.map(
     (item: { name: string; imagePath: string }) => (
@@ -45,5 +49,14 @@ export const Options = ({ optionType }: OptionsProps) => {
     )
   );
 
-  return <Row>{optionItems}</Row>;
+  return (
+    <>
+      <h2>{title}</h2>
+      <p>{formatCurrency(pricePerItem[optionType])} each</p>
+      <p>
+        {title} total: {formatCurrency(totals[optionType])}
+      </p>
+      <Row>{optionItems}</Row>
+    </>
+  );
 };
