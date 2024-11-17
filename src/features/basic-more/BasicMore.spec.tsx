@@ -35,8 +35,6 @@ describe("BasicMore component tests", () => {
     const button = screen.getByRole("button", { name: /Change to blue/i });
     const userEvents = userEvent.setup();
 
-    
-
     await userEvents.click(checkbox);
 
     expect(checkbox).toBeChecked();

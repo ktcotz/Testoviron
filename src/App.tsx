@@ -5,6 +5,7 @@ import { SummaryForm } from "./features/form/SummaryForm";
 import { AdvancedForm } from "./features/advanced-form/AdvancedForm";
 import { CustomHook } from "./features/custom-hook/CustomHook";
 import { Zustand } from "./features/zustand/Zustand";
+import { Supi } from "./features/supabase/Supi";
 
 type Component = {
   id: number;
@@ -36,6 +37,10 @@ export const App = () => {
     {
       id: 6,
       component: Zustand,
+    },
+    {
+      id: 7,
+      component: Supi,
     },
   ]);
 

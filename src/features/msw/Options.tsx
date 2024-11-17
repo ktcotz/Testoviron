@@ -4,7 +4,7 @@ import ToopingOption from "./ToopingOption";
 import { useQuery } from "@tanstack/react-query";
 import AlertBanner from "./AlertBanner";
 import { pricePerItem } from "../context/constants";
-import { useOrderDetails } from "../context/OrderDetails";
+
 import { formatCurrency } from "../context/utilities";
 
 type OptionsProps = {
@@ -29,8 +29,6 @@ export const Options = ({ optionType }: OptionsProps) => {
     },
   });
 
-  const { totals } = useOrderDetails();
-
   if (isError || error) {
     return <AlertBanner />;
   }
@@ -53,9 +51,7 @@ export const Options = ({ optionType }: OptionsProps) => {
     <>
       <h2>{title}</h2>
       <p>{formatCurrency(pricePerItem[optionType])} each</p>
-      <p>
-        {title} total: {formatCurrency(totals[optionType])}
-      </p>
+      <p>{title} total: 0</p>
       <Row>{optionItems}</Row>
     </>
   );

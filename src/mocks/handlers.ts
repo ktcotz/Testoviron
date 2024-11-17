@@ -29,4 +29,18 @@ export const handlers = [
       },
     ]);
   }),
+
+  http.get(`${import.meta.env.VITE_SUPABASE_URL}/rest/v1/todos`, () => {
+    return HttpResponse.json([
+      {
+        id: 1,
+        name: "Pobieranie",
+      },
+      { id: 2, name: "Śpiewanie" },
+      {
+        id: 3,
+        name: "Gorączka",
+      },
+    ]);
+  }),
 ];
