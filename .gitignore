@@ -26,3 +26,7 @@ dist-ssr
 *storybook.log
 sundae-server
 .env
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
