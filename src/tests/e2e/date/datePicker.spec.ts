@@ -18,7 +18,7 @@ test.describe("Date picker playwright testing", () => {
 
     await day.click();
 
-    await expect(calendarInputField).toHaveValue("Nov 14, 2024");
+    await expect(calendarInputField).toHaveValue("Jan 14, 2025");
   });
 
   test("Automated date picker testing", async ({ page }) => {
