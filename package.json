@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
+    "test-e2e":"npx playwright test --ui",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
