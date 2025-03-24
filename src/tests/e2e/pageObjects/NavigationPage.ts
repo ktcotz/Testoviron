@@ -5,6 +5,7 @@ export class NavigationPage {
   formLayoutsLink: Locator;
 
   modalOverlaysLink: Locator;
+  tablesOverlaysLink: Locator;
   constructor(protected page: Page) {
     this.formsLink = this.page.getByRole("link", { name: "Forms" });
     this.formLayoutsLink = this.page.getByRole("link", {
@@ -13,6 +14,10 @@ export class NavigationPage {
 
     this.modalOverlaysLink = this.page.getByRole("link", {
       name: "Modal & Overlays",
+    });
+
+    this.tablesOverlaysLink = this.page.getByRole("link", {
+      name: "Tables & Data",
     });
   }
 
@@ -25,6 +30,18 @@ export class NavigationPage {
     element: "Toastr" | "Tooltip" = "Toastr"
   ) {
     await this.modalOverlaysLink.click();
+
+    const modalElement = this.page.getByRole("link", {
+      name: element,
+    });
+
+    await modalElement.click();
+  }
+
+  async navigateToTablesData(
+    element: "Smart Table" | "Tooltip" = "Smart Table"
+  ) {
+    await this.tablesOverlaysLink.click();
 
     const modalElement = this.page.getByRole("link", {
       name: element,

@@ -29,4 +29,10 @@ export class ResultsPage {
 
     await expect(tooltip).toBeDefined();
   }
+
+  async correctDialogDelete() {
+    const firstRow = this.page.locator("table tr").first();
+
+    await expect(firstRow).not.toHaveText(/mdo@gmail.com/);
+  }
 }
