@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 
 export class TablesDataPage {
   constructor(protected page: Page) {}
@@ -48,5 +48,33 @@ export class TablesDataPage {
     const accept = this.page.locator(".nb-checkmark");
 
     await accept.click();
+  }
+
+  async filterByValue() {
+    const ages = ["20", "30", "40", "200"];
+    const ageInputFilter = this.page
+      .locator("input-filter")
+      .getByPlaceholder("Age");
+
+    for (const age of ages) {
+      await ageInputFilter.clear();
+      await ageInputFilter.fill(age);
+
+      await this.page.waitForTimeout(500);
+
+      const ageRows = this.page.locator("tbody tr");
+
+      for (const row of await ageRows.all()) {
+        const cellValue = await row.locator("td").last().textContent();
+
+        if (age === "200") {
+          expect(await this.page.getByRole("table").textContent()).toContain(
+            "No data found"
+          );
+        } else {
+          expect(cellValue).toEqual(age);
+        }
+      }
+    }
   }
 }

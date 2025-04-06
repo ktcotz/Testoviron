@@ -3,6 +3,7 @@ import { Locator, Page } from "@playwright/test";
 export class NavigationPage {
   formsLink: Locator;
   formLayoutsLink: Locator;
+  datePickerLink: Locator;
 
   modalOverlaysLink: Locator;
   tablesOverlaysLink: Locator;
@@ -10,6 +11,10 @@ export class NavigationPage {
     this.formsLink = this.page.getByRole("link", { name: "Forms" });
     this.formLayoutsLink = this.page.getByRole("link", {
       name: "Form Layouts",
+    });
+
+    this.datePickerLink = this.page.getByRole("link", {
+      name: "Datepicker",
     });
 
     this.modalOverlaysLink = this.page.getByRole("link", {
@@ -24,6 +29,11 @@ export class NavigationPage {
   async navigateToFormLayouts() {
     await this.formsLink.click();
     await this.formLayoutsLink.click();
+  }
+
+  async navigateToDatePicker() {
+    await this.formsLink.click();
+    await this.datePickerLink.click();
   }
 
   async navigateToModalOverlaysLayouts(

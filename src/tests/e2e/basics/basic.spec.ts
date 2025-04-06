@@ -5,6 +5,7 @@ import { ResultsPage } from "../pageObjects/ResultsPage";
 import { ModalOverlaysPage } from "../pageObjects/ModalOverlaysPage";
 import { ThemePage } from "../pageObjects/ThemePage";
 import { TablesDataPage } from "../pageObjects/TablesDataPage";
+import { DatePicker } from "../pageObjects/DatePickerPage";
 
 test.describe("Basic components E2E testing", () => {
   test("Should correctly working on form layouts e2e components", async ({
@@ -91,5 +92,19 @@ test.describe("Basic components E2E testing", () => {
     const tablesDataPage = new TablesDataPage(page);
     await tablesDataPage.modifyAgeRow();
     await tablesDataPage.modifyIDEmail();
+
+    await tablesDataPage.filterByValue();
+  });
+
+  test("Should correctly working with date pickers e2e component", async ({
+    page,
+  }) => {
+    await page.goto("http://localhost:4200");
+
+    const navigationPage = new NavigationPage(page);
+    await navigationPage.navigateToDatePicker();
+
+    const datePickerPage = new DatePicker(page);
+    await datePickerPage.commonDatepicker();
   });
 });
