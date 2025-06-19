@@ -1,11 +1,11 @@
 import { ReactElement, useState } from "react";
-import { Basic } from "./features/basic/Basic";
-import { BasicMore } from "./features/basic-more/BasicMore";
-import { SummaryForm } from "./features/form/SummaryForm";
-import { AdvancedForm } from "./features/advanced-form/AdvancedForm";
-import { CustomHook } from "./features/custom-hook/CustomHook";
-import { Zustand } from "./features/zustand/Zustand";
-import { Supi } from "./features/supabase/Supi";
+import { Basic } from "./features/basic-tests/Basic";
+import { BasicMore } from "./features/basic-more-tests/BasicMore";
+import { SummaryForm } from "./features/form-tests/SummaryForm";
+import { AdvancedForm } from "./features/advanced-form-tests/AdvancedForm";
+import { CustomHook } from "./features/custom-hook-tests/CustomHook";
+import { Zustand } from "./features/zustand-tests/Zustand";
+import { Supi } from "./features/supabase-tests/Supi";
 
 type Component = {
   id: number;
